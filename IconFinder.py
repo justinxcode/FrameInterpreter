@@ -4,15 +4,15 @@ class IconPositions:
             self.width = 36
             self.height = 36
             self.position_one_x = 70    #CERTAIN - 60.78
-            self.position_two_x = 129   #CERTAIN - 483.36
+            self.position_two_x = 130   #CERTAIN - 487.49
             self.position_three_x = 190 #CERTAIN - 485.93
             self.position_four_x = 250  #CERTAIN - 295.78
             self.position_five_x = 310  #CERTAIN - 566.12
-            self.position_six_x = 369   #CERTAIN - 979.64
+            self.position_six_x = 370   #CERTAIN - 979.64
             self.position_seven_x = 430 #CERTAIN - 990.56
-            self.position_eight_x = 489 #CERTAIN - 536.03
-            self.position_nine_x = 550 
-            self.position_ten_x = 610 
+            self.position_eight_x = 490 #CERTAIN - 536.03
+            self.position_nine_x = 550  #CERTAIN - 956.11
+            self.position_ten_x = 610   #CERTAIN - 38.07
 
     def position_one_output(self, frame):
         return frame[self.y:self.y+self.height, self.position_one_x:self.position_one_x+self.width]

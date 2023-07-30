@@ -6,10 +6,10 @@ import numpy as np
 class IconMatch:
     def __init__(self):
             # Reference path
-            self.referencePath_720p = ''
-            self.referencePath_1080p = ''
+            self.referencePath_720p = '' #TODO
+            self.referencePath_1080p = '' #TODO
             self.referencePath_1440p = 'icons\\1440p\\'
-            self.referencePath_2160p = ''
+            self.referencePath_2160p = '' #TODO
 
     def mse_score(self, image_one, image_two):
         # Compute the mean squared error between two images
@@ -29,7 +29,6 @@ class IconMatch:
                 referencePath = self.referencePath_2160p
             else:
                 raise ValueError(f"Unsupported Resolution: {referenceResolution}")
-        
 
             # Get the list of reference files names
             referenceFiles = os.listdir(referencePath)
@@ -37,8 +36,8 @@ class IconMatch:
             # Get the count of reference files
             referenceFileCount = len(referenceFiles)
 
-            if referenceFileCount != 32:
-                raise ValueError(f"Incorrect number of reference files: {referenceFileCount} / 32")
+            if referenceFileCount != 34:
+                raise ValueError(f"Incorrect number of reference files: {referenceFileCount} / 34")
 
         except ValueError as e:
             print(f"An error occurred in define_reference: {str(e)}")
@@ -46,13 +45,11 @@ class IconMatch:
 
         return {referenceFile: cv2.imread(referencePath + referenceFile) for referenceFile in referenceFiles}.items()
     
-    def find_match(self, frame, referenceResolution):
+    def find_match(self, frame, referenceImages):
 
         match_found = False
-        closest_match_name = None
+        #closest_match_name = None
         closest_match_score = float('inf')
-
-        referenceImages = self.define_reference(referenceResolution)
 
         for referenceName, referenceImage in referenceImages:
  
@@ -60,17 +57,20 @@ class IconMatch:
             mse_score = self.mse_score(frame, referenceImage)
             #print(f"MSE with {referenceName} with score {mse_score:.2f}!")
 
-            if mse_score < 2000:  # Adjust this threshold according to your requirement
+            if mse_score < 1000:  # Adjust this threshold according to your requirement
                 print(f"Match found with {referenceName} with score {mse_score:.2f}!")
                 match_found = True
-                break
+                file_name_without_ext, _ = os.path.splitext(referenceName)
+                return file_name_without_ext
+            
             elif mse_score < closest_match_score:
                 closest_match_score = round(mse_score, 2)
-                closest_match_name = referenceName
+                #closest_match_name = referenceName
 
         if not match_found:
-            if closest_match_score <= 10000.00:
-                print(f"Closest match found with {closest_match_name} with score {closest_match_score}!")
+            if closest_match_score <= 5000.00:
+                #print(f"Closest match found with {closest_match_name} with score {closest_match_score}!")
+                return "NONE"
             else:
-                print("Probably Neutral?")
+                return "NEUTRAL"
             
