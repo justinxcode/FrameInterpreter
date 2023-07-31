@@ -10,15 +10,12 @@ start_time = time.time()
 builder = InputBuilder()
 action = ActionBuilder()
 
-
 #sourcePath = 'D:\\GGST_DATA\\RIPPER_REFERENCE_DATA\\ICON_REFERENCE_FRAMES\\'
 #sourcePath = 'D:\\GGST_DATA\\RIPPER_REFERENCE_DATA\\TEST_FRAMES\\'
 #sourceName = 'ALL_TEN.png'
 #sourceImage = cv2.imread(sourcePath + sourceName)
-
-
-            
-pathName = 'D:\\GGST_DATA\\BATTLE_DATA_FRAMES\\SOL_KY\\ROUNDT_THREE_WIN\\FIGHT_ONE\\'
+   
+pathName = 'D:\\GGST_DATA\\BATTLE_DATA_FRAMES\\SOL_KY\\ROUND_THREE_WIN\\FIGHT_ONE\\'
 
 files_in_directory = os.listdir(pathName)
 
@@ -64,8 +61,7 @@ for fileName in files_in_directory:
 
     print(test)
     #print(bool_list)
-
-    
+   
     new_size = (1280, 720)
     resized_image = cv2.resize(image, new_size)
     cv2.imshow('debug_image', resized_image)
@@ -80,14 +76,11 @@ cv2.destroyAllWindows()
 
 
 
-#cv2.imshow('TEST', first_position)
+#THIS IS FOR DEBUG - LEAVE IT
 
 #end_time = time.time()
 #elapsed_time_ms = (end_time - start_time) * 1000
 #print(f'Elapsed time for this loop: {elapsed_time_ms}ms')
-#THIS IS FOR DEBUG - LEAVE IT
-
-
 #new_size = (1280, 720)
 #resized_image = cv2.resize(sourceImage, new_size)
 #cv2.imshow('debug_image', resized_image)
