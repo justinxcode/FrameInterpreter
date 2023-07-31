@@ -1,7 +1,7 @@
 import cv2
 
 filePath = 'D:\\GGST_DATA\\TEMP\\VIDEOS\\'
-fileName = 'SOL_KY_INPUTS.avi'
+fileName = 'chipp1_input.avi'
 videoPath =  filePath + fileName
 
 frame_count = 0
