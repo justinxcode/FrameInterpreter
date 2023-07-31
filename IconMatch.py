@@ -6,7 +6,7 @@ class IconMatch:
 
     def mse_score(self, image_one, image_two):
 
-        mse_score = np.sum((image_one.astype("float") - image_two.astype("float")) ** 2)
+        mse_score = np.sum((image_one.astype('float') - image_two.astype('float')) ** 2)
 
         mse_score /= float(image_one.shape[0] * image_one.shape[1])
 
@@ -25,8 +25,8 @@ class IconMatch:
                 lowest_input_name = referenceName
 
         if lowest_mse_score >= self.mse_threshold:
-            return "NEUTRAL"
+            return 'NEUTRAL'
         
-        print(f"MSE with {lowest_input_name} with score {lowest_mse_score:.2f}!")
+        #print(f"MSE with {lowest_input_name} with score {lowest_mse_score:.2f}!")
         return lowest_input_name
             

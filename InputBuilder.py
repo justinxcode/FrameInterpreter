@@ -10,101 +10,300 @@ class InputBuilder:
     def __init__(self):
             self.all_inputs = ref.get_all_references()
             self.button_inputs = ref.get_button_references()
+            self.direction_inputs = ref.get_direction_references()
             self.neutral = 'NEUTRAL'
+            self.all_neutral = [self.neutral] * 10
+            self.results = [self.neutral] * 3
+            self.old_result_one = self.all_neutral
+            self.old_result_two = self.all_neutral
 
-    def position_ten_input(self, frame):
-        position = pos.position_ten_output(frame)
-        input_ten = match.find_match(position, self.button_inputs)
+    # Row one functions
+    def row_one_position_ten_input(self, frame):
+        position = pos.row_one_position_ten_output(frame)
+        input_ten = match.find_match(position, self.button_inputs.items())
         return [input_ten]
     
-    def position_nine_input(self, frame):
-        position = pos.position_nine_output(frame)
-        input_nine = match.find_match(position, self.button_inputs)
+    def row_one_position_nine_input(self, frame):
+        position = pos.row_one_position_nine_output(frame)
+        input_nine = match.find_match(position, self.button_inputs.items())
 
         if input_nine == self.neutral:
             return [self.neutral] * 2
         else:
-            return [input_nine] + self.position_ten_input(frame)
+            return [input_nine] + self.row_one_position_ten_input(frame)
 
-    def position_eight_input(self, frame):
-        position = pos.position_eight_output(frame)
-        input_eight = match.find_match(position, self.button_inputs)
+    def row_one_position_eight_input(self, frame):
+        position = pos.row_one_position_eight_output(frame)
+        input_eight = match.find_match(position, self.button_inputs.items())
 
         if input_eight == self.neutral:
             return [self.neutral] * 3
         else:
-            return [input_eight] + self.position_nine_input(frame)
+            return [input_eight] + self.row_one_position_nine_input(frame)
 
-    def position_seven_input(self, frame):
-        position = pos.position_seven_output(frame)
-        input_seven = match.find_match(position, self.button_inputs)
+    def row_one_position_seven_input(self, frame):
+        position = pos.row_one_position_seven_output(frame)
+        input_seven = match.find_match(position, self.button_inputs.items())
 
         if input_seven == self.neutral:
             return [self.neutral] * 4
         else:
 
-            return [input_seven] + self.position_eight_input(frame)
+            return [input_seven] + self.row_one_position_eight_input(frame)
 
-    def position_six_input(self, frame):
-        position = pos.position_six_output(frame)
-        input_six = match.find_match(position, self.button_inputs)
+    def row_one_position_six_input(self, frame):
+        position = pos.row_one_position_six_output(frame)
+        input_six = match.find_match(position, self.button_inputs.items())
         
         if input_six == self.neutral:
             return [self.neutral] * 5
         else:
-            return [input_six] + self.position_seven_input(frame)
+            return [input_six] + self.row_one_position_seven_input(frame)
         
-    def position_five_input(self, frame):
-        position = pos.position_five_output(frame)
-        input_five = match.find_match(position, self.button_inputs)
+    def row_one_position_five_input(self, frame):
+        position = pos.row_one_position_five_output(frame)
+        input_five = match.find_match(position, self.button_inputs.items())
 
         if input_five == self.neutral:
             return [self.neutral] * 6
         else:
-            return [input_five] + self.position_six_input(frame)
+            return [input_five] + self.row_one_position_six_input(frame)
         
-    def position_four_input(self, frame):
-        position = pos.position_four_output(frame)
-        input_four = match.find_match(position, self.button_inputs)
+    def row_one_position_four_input(self, frame):
+        position = pos.row_one_position_four_output(frame)
+        input_four = match.find_match(position, self.button_inputs.items())
         
         if input_four == self.neutral:
             return [self.neutral] * 7
         else:
-            return [input_four] + self.position_five_input(frame)
+            return [input_four] + self.row_one_position_five_input(frame)
         
-    def position_three_input(self, frame):
-        position = pos.position_three_output(frame)
-        input_three = match.find_match(position, self.button_inputs)
+    def row_one_position_three_input(self, frame):
+        position = pos.row_one_position_three_output(frame)
+        input_three = match.find_match(position, self.button_inputs.items())
         
         if input_three == self.neutral:
             return [self.neutral] * 8
         else:
-            return [input_three] + self.position_four_input(frame)
+            return [input_three] + self.row_one_position_four_input(frame)
         
-    def position_two_input(self, frame):
-        position = pos.position_two_output(frame)
-        input_two = match.find_match(position, self.button_inputs)
+    def row_one_position_two_input(self, frame):
+        position = pos.row_one_position_two_output(frame)
+        input_two = match.find_match(position, self.button_inputs.items())
         
         if input_two == self.neutral:
             return [self.neutral] * 9
         else:
-            return [input_two] + self.position_three_input(frame)
+            return [input_two] + self.row_one_position_three_input(frame)
         
-    def position_one_input(self, frame):
-        position = pos.position_one_output(frame)
-        input_one = match.find_match(position, self.all_inputs)
+    def row_one_position_one_input(self, frame):
+        position = pos.row_one_position_one_output(frame)
+        input_one = match.find_match(position, self.all_inputs.items())
         
         if input_one == self.neutral:
             return [self.neutral] * 10
         else:
-            return [input_one] + self.position_two_input(frame)
+            return [input_one] + self.row_one_position_two_input(frame)
+        
+    # Row two functions
+    def row_two_position_ten_input(self, frame):
+        position = pos.row_two_position_ten_output(frame)
+        input_ten = match.find_match(position, self.button_inputs.items())
+        return [input_ten]
     
-    
-    
-    
-    
+    def row_two_position_nine_input(self, frame):
+        position = pos.row_two_position_nine_output(frame)
+        input_nine = match.find_match(position, self.button_inputs.items())
 
+        if input_nine == self.neutral:
+            return [self.neutral] * 2
+        else:
+            return [input_nine] + self.row_two_position_ten_input(frame)
+
+    def row_two_position_eight_input(self, frame):
+        position = pos.row_two_position_eight_output(frame)
+        input_eight = match.find_match(position, self.button_inputs.items())
+
+        if input_eight == self.neutral:
+            return [self.neutral] * 3
+        else:
+            return [input_eight] + self.row_two_position_nine_input(frame)
+
+    def row_two_position_seven_input(self, frame):
+        position = pos.row_two_position_seven_output(frame)
+        input_seven = match.find_match(position, self.button_inputs.items())
+
+        if input_seven == self.neutral:
+            return [self.neutral] * 4
+        else:
+
+            return [input_seven] + self.row_two_position_eight_input(frame)
+
+    def row_two_position_six_input(self, frame):
+        position = pos.row_two_position_six_output(frame)
+        input_six = match.find_match(position, self.button_inputs.items())
+        
+        if input_six == self.neutral:
+            return [self.neutral] * 5
+        else:
+            return [input_six] + self.row_two_position_seven_input(frame)
+        
+    def row_two_position_five_input(self, frame):
+        position = pos.row_two_position_five_output(frame)
+        input_five = match.find_match(position, self.button_inputs.items())
+
+        if input_five == self.neutral:
+            return [self.neutral] * 6
+        else:
+            return [input_five] + self.row_two_position_six_input(frame)
+        
+    def row_two_position_four_input(self, frame):
+        position = pos.row_two_position_four_output(frame)
+        input_four = match.find_match(position, self.button_inputs.items())
+        
+        if input_four == self.neutral:
+            return [self.neutral] * 7
+        else:
+            return [input_four] + self.row_two_position_five_input(frame)
+        
+    def row_two_position_three_input(self, frame):
+        position = pos.row_two_position_three_output(frame)
+        input_three = match.find_match(position, self.button_inputs.items())
+        
+        if input_three == self.neutral:
+            return [self.neutral] * 8
+        else:
+            return [input_three] + self.row_two_position_four_input(frame)
+        
+    def row_two_position_two_input(self, frame):
+        position = pos.row_two_position_two_output(frame)
+        input_two = match.find_match(position, self.button_inputs.items())
+        
+        if input_two == self.neutral:
+            return [self.neutral] * 9
+        else:
+            return [input_two] + self.row_two_position_three_input(frame)
+        
+    def row_two_position_one_input(self, frame):
+        position = pos.row_two_position_one_output(frame)
+        input_one = match.find_match(position, self.all_inputs.items())
+        
+        if input_one == self.neutral:
+            return [self.neutral] * 10
+        else:
+            return [input_one] + self.row_two_position_two_input(frame)
+        
+    # Row three functions
+    def three_position_ten_input(self, frame):
+        position = pos.row_three_position_ten_output(frame)
+        input_ten = match.find_match(position, self.button_inputs.items())
+        return [input_ten]
     
-    
-    
-    
+    def row_three_position_nine_input(self, frame):
+        position = pos.row_three_position_nine_output(frame)
+        input_nine = match.find_match(position, self.button_inputs.items())
+
+        if input_nine == self.neutral:
+            return [self.neutral] * 2
+        else:
+            return [input_nine] + self.row_three_position_ten_input(frame)
+
+    def row_three_position_eight_input(self, frame):
+        position = pos.row_three_position_eight_output(frame)
+        input_eight = match.find_match(position, self.button_inputs.items())
+
+        if input_eight == self.neutral:
+            return [self.neutral] * 3
+        else:
+            return [input_eight] + self.row_three_position_nine_input(frame)
+
+    def row_three_position_seven_input(self, frame):
+        position = pos.row_three_position_seven_output(frame)
+        input_seven = match.find_match(position, self.button_inputs.items())
+
+        if input_seven == self.neutral:
+            return [self.neutral] * 4
+        else:
+
+            return [input_seven] + self.row_three_position_eight_input(frame)
+
+    def row_three_position_six_input(self, frame):
+        position = pos.row_three_position_six_output(frame)
+        input_six = match.find_match(position, self.button_inputs.items())
+        
+        if input_six == self.neutral:
+            return [self.neutral] * 5
+        else:
+            return [input_six] + self.row_three_position_seven_input(frame)
+        
+    def row_three_position_five_input(self, frame):
+        position = pos.row_three_position_five_output(frame)
+        input_five = match.find_match(position, self.button_inputs.items())
+
+        if input_five == self.neutral:
+            return [self.neutral] * 6
+        else:
+            return [input_five] + self.row_three_position_six_input(frame)
+        
+    def row_three_position_four_input(self, frame):
+        position = pos.row_three_position_four_output(frame)
+        input_four = match.find_match(position, self.button_inputs.items())
+        
+        if input_four == self.neutral:
+            return [self.neutral] * 7
+        else:
+            return [input_four] + self.row_three_position_five_input(frame)
+        
+    def row_three_position_three_input(self, frame):
+        position = pos.row_three_position_three_output(frame)
+        input_three = match.find_match(position, self.button_inputs.items())
+        
+        if input_three == self.neutral:
+            return [self.neutral] * 8
+        else:
+            return [input_three] + self.row_three_position_four_input(frame)
+        
+    def row_three_position_two_input(self, frame):
+        position = pos.row_three_position_two_output(frame)
+        input_two = match.find_match(position, self.button_inputs.items())
+        
+        if input_two == self.neutral:
+            return [self.neutral] * 9
+        else:
+            return [input_two] + self.row_three_position_three_input(frame)
+        
+    def row_three_position_one_input(self, frame):
+        position = pos.row_three_position_one_output(frame)
+        input_one = match.find_match(position, self.all_inputs.items())
+        
+        if input_one == self.neutral:
+            return [self.neutral] * 10
+        else:
+            return [input_one] + self.row_three_position_two_input(frame)
+        
+    def majority_true(slef, list):
+        number_true = list.count(True)
+        return number_true >= len(list) #* 0.8
+        
+    # Get newest inputs
+    def get_input(self, frame):
+        
+        # Store current results
+        row_one_result = self.row_one_position_one_input(frame)
+        row_two_result = self.row_two_position_one_input(frame)
+        row_three_result = self.row_three_position_one_input(frame)
+
+        bool_list = []
+        bool_list.append(self.old_result_one == row_two_result)
+        bool_list.append(self.old_result_two == row_three_result)
+
+        if self.majority_true(bool_list):
+            output = row_one_result
+        else:
+            output = self.all_neutral
+
+        # Set old results with current ones
+        self.old_result_one = row_one_result
+        self.old_result_two = row_two_result
+
+        return output, bool_list

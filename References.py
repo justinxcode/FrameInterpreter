@@ -46,16 +46,6 @@ class References:
 
         return referencePath
 
-        #reference_dictionary = {}
-#
-        #for referenceFileName in referenceFileNames:
-        #    input_name, _ = os.path.splitext(referenceFileName)
-        #    reference_dictionary[input_name] = cv2.imread(referencePath + referenceFileName)
-        #        
-#
-        #return reference_dictionary
-        #return {referenceFileName: cv2.imread(referencePath + referenceFileName) for referenceFileName in referenceFileNames}.items()
-    
     def get_all_references(self):
 
         referencePath = self.get_reference_path()
@@ -68,7 +58,7 @@ class References:
             input_name, _ = os.path.splitext(referenceFileName)
             dictionary[input_name] = cv2.imread(referencePath + referenceFileName)
 
-        return dictionary.items()
+        return dictionary
 
     def get_button_references(self):
 
@@ -84,5 +74,21 @@ class References:
             input_name, _ = os.path.splitext(referenceFileName)
             dictionary[input_name] = cv2.imread(referencePath + referenceFileName)
 
-        return dictionary.items()
+        return dictionary
+    
+    def get_direction_references(self):
+
+        referencePath = self.get_reference_path()
+
+        referenceFileNames = os.listdir(referencePath)
+
+        directions_only = [x for x in referenceFileNames if x in self.directionsFileNames]
+
+        dictionary = {}
+
+        for referenceFileName in directions_only:
+            input_name, _ = os.path.splitext(referenceFileName)
+            dictionary[input_name] = cv2.imread(referencePath + referenceFileName)
+
+        return dictionary
     
