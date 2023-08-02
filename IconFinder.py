@@ -5,6 +5,9 @@ class IconPositions:
             self.row_one_y = 300
             self.row_two_y = 372
             self.row_three_y = 444
+            self.row_four_y = 516
+            self.row_five_y = 588
+            self.row_six_y = 660
             self.position_one_x = 74
             self.position_two_x = 134
             self.position_three_x = 194
@@ -108,3 +111,65 @@ class IconPositions:
     
     def row_three_position_ten_output(self, frame):
         return frame[self.row_three_y:self.row_three_y + self.height, self.position_ten_x:self.position_ten_x + self.width]
+    
+    # Row four functions
+    def row_four_position_one_output(self, frame):
+        return frame[self.row_four_y:self.row_four_y + self.height, self.position_one_x:self.position_one_x + self.width]
+    
+    def row_four_position_two_output(self, frame):
+        return frame[self.row_four_y:self.row_four_y + self.height, self.position_two_x:self.position_two_x + self.width]
+
+    def row_four_position_three_output(self, frame):
+        return frame[self.row_four_y:self.row_four_y + self.height, self.position_three_x:self.position_three_x + self.width]
+    
+    def row_four_position_four_output(self, frame):
+        return frame[self.row_four_y:self.row_four_y + self.height, self.position_four_x:self.position_four_x + self.width]
+    
+    def row_four_position_five_output(self, frame):
+        return frame[self.row_four_y:self.row_four_y + self.height, self.position_five_x:self.position_five_x + self.width]
+    
+    def row_four_position_six_output(self, frame):
+        return frame[self.row_four_y:self.row_four_y + self.height, self.position_six_x:self.position_six_x + self.width]
+    
+    def row_four_position_seven_output(self, frame):
+        return frame[self.row_four_y:self.row_four_y + self.height, self.position_seven_x:self.position_seven_x + self.width]
+    
+    def row_four_position_eight_output(self, frame):
+        return frame[self.row_four_y:self.row_four_y + self.height, self.position_eight_x:self.position_eight_x + self.width]
+    
+    def row_four_position_nine_output(self, frame):
+        return frame[self.row_four_y:self.row_four_y + self.height, self.position_nine_x:self.position_nine_x + self.width]
+    
+    def row_four_position_ten_output(self, frame):
+        return frame[self.row_four_y:self.row_four_y + self.height, self.position_ten_x:self.position_ten_x + self.width]
+    
+    # Row five functions
+    def row_five_position_one_output(self, frame):
+        return frame[self.row_five_y:self.row_five_y + self.height, self.position_one_x:self.position_one_x + self.width]
+    
+    def row_five_position_two_output(self, frame):
+        return frame[self.row_five_y:self.row_five_y + self.height, self.position_two_x:self.position_two_x + self.width]
+
+    def row_five_position_three_output(self, frame):
+        return frame[self.row_five_y:self.row_five_y + self.height, self.position_three_x:self.position_three_x + self.width]
+    
+    def row_five_position_four_output(self, frame):
+        return frame[self.row_five_y:self.row_five_y + self.height, self.position_four_x:self.position_four_x + self.width]
+    
+    def row_five_position_five_output(self, frame):
+        return frame[self.row_five_y:self.row_five_y + self.height, self.position_five_x:self.position_five_x + self.width]
+    
+    def row_five_position_six_output(self, frame):
+        return frame[self.row_five_y:self.row_five_y + self.height, self.position_six_x:self.position_six_x + self.width]
+    
+    def row_five_position_seven_output(self, frame):
+        return frame[self.row_five_y:self.row_five_y + self.height, self.position_seven_x:self.position_seven_x + self.width]
+    
+    def row_five_position_eight_output(self, frame):
+        return frame[self.row_five_y:self.row_five_y + self.height, self.position_eight_x:self.position_eight_x + self.width]
+    
+    def row_five_position_nine_output(self, frame):
+        return frame[self.row_five_y:self.row_five_y + self.height, self.position_nine_x:self.position_nine_x + self.width]
+    
+    def row_five_position_ten_output(self, frame):
+        return frame[self.row_five_y:self.row_five_y + self.height, self.position_ten_x:self.position_ten_x + self.width]
