@@ -5,7 +5,7 @@ from IconFinder import IconPositions
 builder = InputBuilder()
 pos = IconPositions()
 
-sourcePath = 'D:\\GGST_DATA\\RIPPER_REFERENCE_DATA\\TEST_FRAMES\\ALL_TEN.png'
+sourcePath = 'images\\1440p\\reference\\ALL_TEN.png'
 sourceImage = cv2.imread(sourcePath)
 
 #row_one = builder.row_one_position_one_input(sourceImage)
